@@ -66,7 +66,7 @@
         <fastjson.version>1.2.47</fastjson.version>
         <hutool.version>4.1.19</hutool.version>
         <reactor.version>2.0.8.RELEASE</reactor.version>
-        <netty.version>4.1.33.Final</netty.version>
+        <netty.version>4.1.42.Final</netty.version>
 
         <jodd.lagarto.version>5.0.6</jodd.lagarto.version>
         <jsoup.version>1.11.3</jsoup.version>
