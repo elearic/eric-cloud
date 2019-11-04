@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>zzerci-cloud-euraka-consumer</module>
+        <module>zzeric-cloud-euraka-consumer</module>
         <module>zzeric-cloud-eureka-provider</module>
         <module>zzeric-cloud-eureka-server</module>
         <module>zzeric-cloud-zuul-api</module>
