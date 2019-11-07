@@ -11,5 +11,5 @@ import org.springframework.http.ResponseEntity;
  */
 public interface ConsumerService {
 
-    ResponseEntity<String> baseInfo();
+    String baseInfo() throws InterruptedException;
 }

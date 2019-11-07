@@ -27,7 +27,7 @@ public class ConsumerController {
 
     @GetMapping("baseInfo")
     @ResponseBody
-    public ResponseEntity<String> baseInfo(){
+    public String baseInfo() throws InterruptedException {
         return consumerService.baseInfo();
     }
 }

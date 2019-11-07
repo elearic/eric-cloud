@@ -25,13 +25,13 @@ public class ConsumerServiceImpl implements ConsumerService{
 
     @Override
     @HystrixCommand(fallbackMethod = "baseInfoFallBack")
-    public ResponseEntity<String> baseInfo() {
-        return restTemplate.getForEntity(PROVIDER_PATH+"/baseInfo",String.class);
+    public String baseInfo() throws InterruptedException {
+        Thread.sleep(5000L);
+        return restTemplate.getForEntity(PROVIDER_PATH+"/baseInfo",String.class).getBody();
     }
 
 
-    private ResponseEntity<String> baseInfoFallBack(){
-        ResponseEntity responseEntity = new ResponseEntity(HttpStatus.OK);
-        return responseEntity;
+    private String baseInfoFallBack(){
+        return "error";
     }
 }
