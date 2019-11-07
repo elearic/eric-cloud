@@ -1,5 +1,6 @@
 package consumer;
 
+import consumer.service.ConsumerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -22,11 +23,11 @@ public class ConsumerController {
     public static final String PROVIDER_PATH  = "http://localhost:8021/provider";
 
     @Autowired
-    private RestTemplate restTemplate;
+    ConsumerService consumerService;
 
     @GetMapping("baseInfo")
     @ResponseBody
     public ResponseEntity<String> baseInfo(){
-        return restTemplate.getForEntity(PROVIDER_PATH+"/baseInfo",String.class);
+        return consumerService.baseInfo();
     }
 }
