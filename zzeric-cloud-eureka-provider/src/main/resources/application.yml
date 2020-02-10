@@ -12,4 +12,4 @@ eureka:
     lease-renewal-interval-in-seconds: 5 #心跳时间，即服务续约间隔时间(缺省30s)
   client:
     serviceUrl:
-      defaultZone: http://localhost:8011/eureka/
+      defaultZone: http://localhost:8090/eureka/
