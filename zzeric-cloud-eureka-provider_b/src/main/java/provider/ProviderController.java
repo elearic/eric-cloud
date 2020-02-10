@@ -19,6 +19,6 @@ public class ProviderController {
     @GetMapping("baseInfo")
     @ResponseBody
     private String baseInfo(){
-        return "hello world!!!------>provider-A";
+        return "hello world!!!------>provider-B";
     }
 }

@@ -14,7 +14,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.3.RELEASE</version>
-        <relativePath />
+        <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
@@ -29,6 +29,8 @@
 
         <commons-httpclient.version>3.1</commons-httpclient.version>
         <httpclient.version>4.5.6</httpclient.version>
+
+        <jetcache.version>2.5.14</jetcache.version>
 
         <commons.lang.version>2.6</commons.lang.version>
         <commons.lang3.version>3.8.1</commons.lang3.version>
@@ -192,6 +194,8 @@
                 <artifactId>commons-configuration</artifactId>
                 <version>${commons.configuration.version}</version>
             </dependency>
+            <!-- oracle驱动 -->
+
             <dependency>
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-core</artifactId>
@@ -315,7 +319,6 @@
                 <version>${jsoup.version}</version>
             </dependency>
 
-
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
@@ -387,6 +390,52 @@
                 <artifactId>logstash-logback-encoder</artifactId>
                 <version>${logstash.logback.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.alicp.jetcache</groupId>
+                <artifactId>jetcache-starter-redis</artifactId>
+                <version>${jetcache.version}</version>
+            </dependency>
+            <!-- service dependency -->
+            <dependency>
+                <groupId>net.danglaoshi.cloud</groupId>
+                <artifactId>dls-generator</artifactId>
+                <version>1.3-RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>net.danglaoshi.cloud</groupId>
+                <artifactId>dls-common</artifactId>
+                <version>1.3-RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>net.danglaoshi.cloud</groupId>
+                <artifactId>king-basket</artifactId>
+                <version>1.0.4</version>
+            </dependency>
+            <dependency>
+                <groupId>net.danglaoshi.cloud</groupId>
+                <artifactId>king-zeus-security</artifactId>
+                <version>1.0.4</version>
+            </dependency>
+            <dependency>
+                <groupId>net.danglaoshi.cloud</groupId>
+                <artifactId>king-zeus-client</artifactId>
+                <version>1.0.4</version>
+            </dependency>
+            <dependency>
+                <groupId>net.danglaoshi.cloud</groupId>
+                <artifactId>king-ucenter-client</artifactId>
+                <version>1.0.4</version>
+            </dependency>
+            <dependency>
+                <groupId>net.danglaoshi.cloud</groupId>
+                <artifactId>king-ucenter-security</artifactId>
+                <version>1.0.4</version>
+            </dependency>
+            <dependency>
+                <groupId>net.danglaoshi.cloud</groupId>
+                <artifactId>king-rascal</artifactId>
+                <version>1.0.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -406,6 +455,28 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
             </plugin>
+            <!-- <plugin> -->
+            <!-- <groupId>org.apache.maven.plugins</groupId> -->
+            <!-- <artifactId>maven-source-plugin</artifactId> -->
+            <!-- <executions> -->
+            <!-- <execution> -->
+            <!-- <phase>compile</phase> -->
+            <!-- <goals> -->
+            <!-- <goal>jar</goal> -->
+            <!-- </goals> -->
+            <!-- </execution> -->
+            <!-- </executions> -->
+            <!-- </plugin> -->
+            <!-- <plugin> -->
+            <!-- <groupId>org.apache.maven.plugins</groupId> -->
+            <!-- <artifactId>maven-jar-plugin</artifactId> -->
+            <!-- <configuration> -->
+            <!-- <excludes> -->
+            <!-- <exclude>**/*.yml</exclude> -->
+            <!-- <exclude>**/*.xml</exclude> -->
+            <!-- </excludes> -->
+            <!-- </configuration> -->
+            <!-- </plugin> -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -416,4 +487,36 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>dls-releases</id>
+            <name>Nexus DLS</name>
+            <url>http://nexus.dls:8051/repository/dls-releases/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus-aliyun</id>
+            <name>Nexus aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <distributionManagement>
+        <repository>
+            <id>dls-releases</id>
+            <url>http://nexus.dls:8051/repository/dls-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>dls-snapshots</id>
+            <url>http://nexus.dls:8051/repository/dls-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

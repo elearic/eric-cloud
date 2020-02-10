@@ -19,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/consumer")
 public class ConsumerController {
 
-    public static final String PROVIDER_PATH  = "http://localhost:8021/provider";
+    public static final String PROVIDER_PATH  = "http://EUREKA-PROVIDER";
 
     @Autowired
     private RestTemplate restTemplate;
@@ -27,6 +27,6 @@ public class ConsumerController {
     @GetMapping("baseInfo")
     @ResponseBody
     public ResponseEntity<String> baseInfo(){
-        return restTemplate.getForEntity(PROVIDER_PATH+"/baseInfo",String.class);
+        return restTemplate.getForEntity(PROVIDER_PATH+"/provider/baseInfo",String.class);
     }
 }
