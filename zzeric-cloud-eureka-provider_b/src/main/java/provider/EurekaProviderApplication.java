@@ -3,6 +3,7 @@ package provider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  *
@@ -13,6 +14,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @SpringBootApplication
 @EnableEurekaClient
+/**
+ * 此注册会在程序启动时，进行包扫描，扫描所有带@FeignClient 的注解的类并进行处理
+ */
+@EnableFeignClients
 public class EurekaProviderApplication {
     public static void main(String[] args) {
         SpringApplication.run(EurekaProviderApplication.class, args);

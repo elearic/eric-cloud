@@ -1,5 +1,5 @@
 server:
-  port: 8031
+  port: 8035
 
 spring:
   application:
@@ -11,4 +11,24 @@ eureka:
     lease-renewal-interval-in-seconds: 30 #心跳时间，即服务续约间隔时间(缺省30s)
   client:
     serviceUrl:
-      defaultZone: http://localhost:8011/eureka/
+      defaultZone: http://localhost:8090/eureka/
+    fetch-registry: true
+
+
+# feign 全局配置
+feign:
+  client:
+    config:
+      default:
+        connectionTimeOut: 5000   #请求连接的超时时间
+        readTimeout: 5000  #请求处理的超时时间
+
+
+
+# feign 针对单个服务配置
+feign:
+  client:
+    config:
+      zeric-eureka-provider:
+        connectionTimeOut: 3000  #请求连接的超时时间
+        readTimeout: 3000 #请求处理的超时时间
