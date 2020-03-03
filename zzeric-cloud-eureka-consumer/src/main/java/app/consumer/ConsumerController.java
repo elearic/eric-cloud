@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  *
  *  
@@ -52,4 +56,5 @@ public class ConsumerController {
         System.out.println("==================baseInfo3执行了==================");
         return new ResponseEntity<String>(feignService.baseInfo(), HttpStatus.OK);
     }
+
 }

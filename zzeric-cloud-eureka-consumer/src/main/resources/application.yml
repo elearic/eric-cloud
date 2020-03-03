@@ -14,21 +14,27 @@ eureka:
       defaultZone: http://localhost:8090/eureka/
     fetch-registry: true
 
-
 # feign 全局配置
 feign:
   client:
     config:
       default:
         connectionTimeOut: 5000   #请求连接的超时时间
-        readTimeout: 5000  #请求处理的超时时间
+        readTimeout: 1000  #请求处理的超时时间
 
+ribbon:
+   connectionTimeOut: 5000   #请求连接的超时时间
+   readTimeout: 1  #请求处理的超时时间
 
-
-# feign 针对单个服务配置
-feign:
-  client:
-    config:
-      zeric-eureka-provider:
-        connectionTimeOut: 3000  #请求连接的超时时间
-        readTimeout: 3000 #请求处理的超时时间
+## feign 针对单个服务配置
+#feign:
+#  client:
+#    config:
+#      zeric-eureka-provider:  #微服务名称
+#        connectionTimeOut: 3000  #请求连接的超时时间
+#        readTimeout: 3000 #请求处理的超时时间
+## feign底层默认使用jdk远程UrlConnection ,可以使用httpclient替换，okhttp替换
+#  httpclient: #
+#    enable: true
+#  okhttp:
+#    enable: false

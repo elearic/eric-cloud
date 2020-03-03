@@ -20,12 +20,12 @@ public class ProviderController {
     @GetMapping("baseInfo")
     @ResponseBody
     private String baseInfo(){
-        //线程睡眠，测试客户端的feign超时配置
-//        try {
-//            Thread.sleep(5000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+//        线程睡眠，测试客户端的feign超时配置
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("=====provider.baseInfo执行了");
         return "hello world!!!------>provider-B";
     }
