@@ -1,6 +1,6 @@
-package app.consumer;
+package consumer.controller;
 
-import app.feign.FeignService;
+import consumer.feign.FeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  *
@@ -37,7 +33,7 @@ public class ConsumerController {
     @GetMapping("baseInfo")
     @ResponseBody
     public ResponseEntity<String> baseInfo(){
-        System.out.println("==================baseInfo执行了==================");
+        System.out.println("==================默认：restTemplate==================");
         return restTemplate.getForEntity(PROVIDER_PATH+"/provider/baseInfo",String.class);
     }
 
@@ -45,16 +41,9 @@ public class ConsumerController {
     @GetMapping("baseInfo2")
     @ResponseBody
     public String baseInfo2(){
-        System.out.println("==================baseInfo2执行了==================");
+        System.out.println("==================baseInfo执行了==================");
         return feignService.baseInfo();
     }
 
-
-    @GetMapping("baseInfo3")
-    @ResponseBody
-    public ResponseEntity<String> baseInfo3(){
-        System.out.println("==================baseInfo3执行了==================");
-        return new ResponseEntity<String>(feignService.baseInfo(), HttpStatus.OK);
-    }
 
 }

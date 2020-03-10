@@ -9,10 +9,14 @@ eureka:
   instance:
     lease-expiration-duration-in-seconds: 90 #没有心跳的淘汰时间，即服务续约到期时间(缺省90s)
     lease-renewal-interval-in-seconds: 30 #心跳时间，即服务续约间隔时间(缺省30s)
+    hostname: consumer
+    instance-id: ${eureka.instance.hostname}:${server.port}
+    prefer-ip-address: true
   client:
     serviceUrl:
       defaultZone: http://localhost:8090/eureka/
     fetch-registry: true
+
 
 # feign 全局配置
 feign:
@@ -21,10 +25,22 @@ feign:
       default:
         connectionTimeOut: 5000   #请求连接的超时时间
         readTimeout: 1000  #请求处理的超时时间
+  httpclient:
+    enable: false
+  okhttp:
+    enable: true
 
+#配置 ze
 ribbon:
-   connectionTimeOut: 5000   #请求连接的超时时间
-   readTimeout: 1  #请求处理的超时时间
+  ConnectionTimeout : 10
+  ReadTimeOut : 10
+  MaxAutoRetries : 1  #对第一次请求的服务的重试次数
+  MaxAutoRetriesNextServer : 1 #要重试的下一个服务的最大数量 (不包含第一个服务)
+  OkToRetryOnAllOperations : false
+
+
+  #请求处理的超时时间
+
 
 ## feign 针对单个服务配置
 #feign:

@@ -1,4 +1,4 @@
-package provider;
+package provider.controller;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Controller;
@@ -21,6 +21,7 @@ public class ProviderController {
     @GetMapping("baseInfo")
     @ResponseBody
     private String baseInfo(){
-        return "hello world!!!------>provider-A";
+
+        return "provider-A 调用成功";
     }
 }

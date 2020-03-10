@@ -9,6 +9,8 @@ eureka:
   instance:
     lease-expiration-duration-in-seconds: 60 #没有心跳的淘汰时间，即服务续约到期时间(缺省90s)
     lease-renewal-interval-in-seconds: 5 #心跳时间，即服务续约间隔时间(缺省30s)
+    hostname: provider
+    prefer-ip-address: false
   client:
     serviceUrl:
       defaultZone: http://localhost:8090/eureka/

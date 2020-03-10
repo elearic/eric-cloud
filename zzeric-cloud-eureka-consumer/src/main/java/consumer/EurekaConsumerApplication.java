@@ -1,11 +1,11 @@
-package app;
+package consumer;
 
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.RandomRule;
+import com.netflix.loadbalancer.RetryRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
  *
  *  
  *  * @author zz_huns  
- *  @version Id: app.EurekaConsumerApplication.java, v 0.1 2019/10/5 5:31 PM zz_huns Exp $$
+ *  @version Id: consumer.EurekaConsumerApplication.java, v 0.1 2019/10/5 5:31 PM zz_huns Exp $$
  *
  */
 @SpringBootApplication
@@ -40,7 +40,7 @@ public class EurekaConsumerApplication {
 
     @Bean
     public IRule getRibbonRule(){
-        return new RandomRule();
+        return new RetryRule();
     }
 
 }

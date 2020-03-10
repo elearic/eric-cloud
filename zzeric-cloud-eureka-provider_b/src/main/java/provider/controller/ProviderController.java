@@ -1,4 +1,4 @@
-package provider.feign.client;
+package provider.controller;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ public class ProviderController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("=====provider.baseInfo执行了");
-        return "hello world!!!------>provider-B";
+        System.out.println("provider-B 调用成功 执行了");
+        return "provider-B 调用成功";
     }
 }
