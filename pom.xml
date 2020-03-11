@@ -4,12 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
     <groupId>net.cloud.zz</groupId>
     <artifactId>zzeric</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>zzeric-cloud-eureka-app.consumer</module>
+        <module>zzeric-cloud-eureka-consumer</module>
         <module>zzeric-cloud-eureka-provider</module>
         <module>zzeric-cloud-eureka-server</module>
         <module>zzeric-cloud-zuul-api</module>

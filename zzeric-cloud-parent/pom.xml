@@ -437,7 +437,6 @@
                 <artifactId>king-rascal</artifactId>
                 <version>1.0.0</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-amqp</artifactId>
