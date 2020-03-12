@@ -19,7 +19,7 @@ public class RabbitProducer {
 
 
     @RabbitHandler
-    @RabbitListener(queues = RabbitConstants.TEST_BINDING)
+    @RabbitListener(queues = RabbitConstants.TEST_QUEUE)
     public void immediateProcess(String message) {
         System.out.println("Receiver：" + message);
     }
