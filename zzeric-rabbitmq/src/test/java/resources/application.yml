@@ -1,0 +1,28 @@
+server:
+  port: 8011
+
+spring:
+  application:
+    name: zzeric-rabbitmq
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: root
+    password: passwd
+    virtual-host: /
+    connection-timeout: 15000
+    listener:
+      simple:
+        acknowledge-mode: manual
+        concurrency: 5
+        max-concurrency: 20
+
+
+#eureka:
+#  instance:
+#    lease-renewal-interval-in-seconds: 30 #心跳时间，即服务续约间隔时间(缺省30s)
+#    lease-expiration-duration-in-seconds: 90 #没有心跳的淘汰时间，即服务续约到期时间(缺省90s)
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8011/eureka/
+#

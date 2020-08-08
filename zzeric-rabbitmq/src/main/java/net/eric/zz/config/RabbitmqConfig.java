@@ -33,6 +33,4 @@ public class RabbitmqConfig {
     public Binding immediateBinding(){
         return BindingBuilder.bind(immediateQueue()).to(immediateExchange()).with(RabbitConstants.TEST_BINDING);
     }
-
-
 }

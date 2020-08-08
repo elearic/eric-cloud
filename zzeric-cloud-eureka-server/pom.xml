@@ -35,6 +35,11 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.9</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>dls</groupId>-->
+<!--            <artifactId>spring-boot-dls-cache-starter</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
     </dependencies>
 
 

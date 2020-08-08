@@ -1,10 +1,16 @@
 package net.eric.zz.producer;
 
+import com.rabbitmq.client.Channel;
 import net.eric.zz.constants.RabbitConstants;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.messaging.Message;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
 
 /**
  *
@@ -20,8 +26,14 @@ public class RabbitProducer {
 
     @RabbitHandler
     @RabbitListener(queues = RabbitConstants.TEST_QUEUE)
-    public void immediateProcess(String message) {
+    public void immediateProcess(Message<byte[]> message, Channel channel) throws IOException {
         System.out.println("Receiver：" + message);
-    }
-
+        byte[] payload = message.getPayload();
+        String json = new String(payload);
+        if (StringUtils.isNotBlank(json)){
+            System.out.println("json....->"+json);
+        }
+        Long deliveryTag = (Long) message.getHeaders().get(AmqpHeaders.DELIVERY_TAG);
+        // 手动ACK
+        channel.basicAck(deliveryTag, false);    }
 }
