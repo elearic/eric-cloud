@@ -4,10 +4,12 @@ import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import net.eric.rabbitmq.RabbitMqApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
@@ -21,10 +23,11 @@ import java.util.concurrent.TimeoutException;
  *
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
-@AutoConfigureMockMvc
+@SpringBootTest(classes = {RabbitMqApplication.class})
 public class RabbitMqTest {
 
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Test
     public void init() throws IOException, TimeoutException {
@@ -43,6 +46,14 @@ public class RabbitMqTest {
                 contentEncoding("UTF-8").build();
 
         channel.basicPublish("test_exchange_demo","test_queue_demo",properties,"helloworld".getBytes());
+    }
+
+    @Test
+    public void testCache(){
+        redisTemplate.opsForValue().set("123","456");
+        System.out.println("131231231");
+        String a = redisTemplate.opsForValue().get("123").toString();
+        System.out.println("aaaa +++>>>>"+a);
     }
 
 
