@@ -72,7 +72,7 @@
         <netty.version>4.1.33.Final</netty.version>
 
         <jodd.lagarto.version>5.0.6</jodd.lagarto.version>
-        <jsoup.version>1.11.3</jsoup.version>
+        <jsoup.version>1.14.2</jsoup.version>
         <joda.time.version>2.9.9</joda.time.version>
 
         <allure.version>2.9.0</allure.version>
